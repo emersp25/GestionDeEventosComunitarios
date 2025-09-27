@@ -1,0 +1,193 @@
+openapi: 3.0.3
+info:
+  title: Sistema de Gestión de Eventos Comunitarios
+  description: API para gestionar eventos comunitarios, incluyendo registros, inscripciones, presupuestos y más.
+  version: 1.0.0
+  contact:
+    name: Soporte de API
+    url: https://www.ejemplo.com
+    email: soporte@ejemplo.com
+
+servers:
+  - url: http://localhost:8080/api
+    description: API local para desarrollo
+
+paths:
+  /eventos/registrar:
+    post:
+      summary: Registrar un nuevo evento comunitario
+      description: Permite registrar un nuevo evento con detalles como nombre, fecha, lugar y costo estimado.
+      operationId: registrarEvento
+      tags:
+        - Eventos
+      requestBody:
+        description: Datos del evento a registrar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Evento'
+      responses:
+        '201':
+          description: Evento registrado exitosamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error en el servidor
+
+  /eventos/{eventoId}/inscripciones:
+    post:
+      summary: Registrar inscripción a un evento
+      description: Permite a los ciudadanos registrarse para asistir a un evento específico.
+      operationId: registrarInscripcion
+      tags:
+        - Inscripciones
+      parameters:
+        - name: eventoId
+          in: path
+          required: true
+          description: ID del evento al que el ciudadano se inscribe
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: Datos del ciudadano que se inscribe
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Inscripcion'
+      responses:
+        '200':
+          description: Inscripción registrada exitosamente
+        '400':
+          description: Solicitud incorrecta
+        '404':
+          description: Evento no encontrado
+        '500':
+          description: Error en el servidor
+
+  /finanzas/{eventoId}/presupuesto:
+    post:
+      summary: Solicitar presupuesto para un evento
+      description: Solicita los fondos necesarios para organizar un evento desde el módulo de Finanzas.
+      operationId: solicitarPresupuesto
+      tags:
+        - Finanzas
+      parameters:
+        - name: eventoId
+          in: path
+          required: true
+          description: ID del evento para el cual se solicita presupuesto
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: Monto solicitado para el presupuesto
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                monto:
+                  type: number
+                  format: float
+                  description: El monto necesario para organizar el evento
+      responses:
+        '200':
+          description: Solicitud de presupuesto realizada exitosamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error en el servidor
+
+  /finanzas/{eventoId}/autorizacion:
+    post:
+      summary: Recibir autorización o rechazo del presupuesto
+      description: Recibe la respuesta de Finanzas sobre la autorización del presupuesto de un evento.
+      operationId: recibirAutorizacion
+      tags:
+        - Finanzas
+      parameters:
+        - name: eventoId
+          in: path
+          required: true
+          description: ID del evento para el cual se recibe la autorización
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: Respuesta de la autorización (aprobada o rechazada)
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                autorizado:
+                  type: boolean
+                  description: Indica si el presupuesto fue aprobado
+      responses:
+        '200':
+          description: Autorización recibida exitosamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error en el servidor
+
+  /eventos/calendario:
+    get:
+      summary: Obtener calendario de eventos
+      description: Obtiene la lista de eventos programados para ser mostrados en un calendario.
+      operationId: obtenerCalendarioEventos
+      tags:
+        - Calendario
+      responses:
+        '200':
+          description: Calendario de eventos obtenido exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Evento'
+        '500':
+          description: Error en el servidor
+
+components:
+  schemas:
+    Evento:
+      type: object
+      properties:
+        eventoId:
+          type: integer
+          description: ID único del evento
+        nombre:
+          type: string
+          description: Nombre del evento
+        fecha:
+          type: string
+          format: date
+          description: Fecha del evento
+        lugar:
+          type: string
+          description: Lugar del evento
+        costoEstimado:
+          type: number
+          format: float
+          description: Costo estimado del evento
+
+    Inscripcion:
+      type: object
+      properties:
+        ciudadanoId:
+          type: integer
+          description: ID del ciudadano
+        nombre:
+          type: string
+          description: Nombre del ciudadano
+        email:
+          type: string
+          format: email
+          description: Correo electrónico del ciudadano
