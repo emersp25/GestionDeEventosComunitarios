@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*Pruebas unitarias para la entidad Event (TDD)*/
+/*Pruebas unitarias para la entidad Event*/
 
 public class EventTest {
     private Event event;

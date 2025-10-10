@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -13,13 +13,14 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>gestion-eventos-comunitarios</name>
 	<description>Sistema de Gestión de Eventos Comunitarios con Arquitectura Hexagonal</description>
-	
+
 	<properties>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
 	<dependencies>
 		<!-- Spring Boot Starters -->
 		<dependency>
@@ -103,7 +104,22 @@
 			<artifactId>assertj-core</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Swagger/OpenAPI Documentation -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.8.13</version>
+		</dependency>
+
+		<!-- Fix para vulnerabilidad CVE-2025-48924 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.18.0</version>
+		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<!-- Spring Boot Maven Plugin -->
@@ -119,7 +135,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Maven Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -135,7 +151,7 @@
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Maven Surefire Plugin (para ejecutar tests) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -147,7 +163,7 @@
 					</includes>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Jacoco Plugin (para cobertura de código) -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
