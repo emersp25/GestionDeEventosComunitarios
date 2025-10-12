@@ -7,6 +7,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.RestClientResponseException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +51,26 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
                 .body(ApiResponse.error(ex.getMessage()));
+    }
+
+    @ExceptionHandler({WebClientResponseException.class, RestClientResponseException.class})
+    public ResponseEntity<ApiResponse<String>> handleClientResponseExceptions(Exception ex) {
+        if (ex instanceof WebClientResponseException wex) {
+            String message = String.format("Error al comunicarse con servicio externo: %d %s - %s",
+                    wex.getRawStatusCode(), wex.getStatusText(), wex.getResponseBodyAsString());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_GATEWAY)
+                    .body(ApiResponse.error(message));
+        }
+        if (ex instanceof RestClientResponseException rex) {
+            String message = String.format("Error al comunicarse con servicio externo: %d %s - %s",
+                    rex.getRawStatusCode(), rex.getStatusText(), rex.getResponseBodyAsString());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_GATEWAY)
+                    .body(ApiResponse.error(message));
+        }
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(ApiResponse.error("Error al comunicarse con servicio externo"));
     }
 
     @ExceptionHandler(Exception.class)

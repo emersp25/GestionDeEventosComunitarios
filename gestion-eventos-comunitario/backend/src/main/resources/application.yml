@@ -1,9 +1,0 @@
-server:
-  port: 84
-  address: 0.0.0.0
-
-springdoc:
-  swagger-ui:
-    path: /swagger
-  api-docs:
-    path: /v3/api-docs
