@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Inscripción confirmada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <span style="display:none!important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">
+    Tu inscripción ha sido confirmada. Detalles del evento adentro.
+  </span>
+</head>
+<body style="margin:0;padding:0;background:#eaf2ff;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+<!-- Header -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0d3d97;">
+    <tr>
+        <td align="center" style="padding:20px 12px;">
+            <div style="max-width:880px;margin:0 auto;color:#ffffff;font-weight:700;font-size:28px;line-height:1;">
+                Inscripción Confirmada
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Contenido -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td align="center" style="padding:28px 12px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:880px;">
+                <tr>
+                    <td style="background:#ffffff;border-radius:10px;box-shadow:0 8px 24px rgba(15,35,95,.08);padding:20px 24px;">
+
+                        <p style="margin:0 0 12px 0;font-size:16px;">
+                            Hola <strong>{{PARTICIPANTE_NOMBRE}}</strong>,
+                        </p>
+                        <p style="margin:0 0 16px 0;font-size:15px;line-height:1.55;">
+                            Tu inscripción fue confirmada.
+                        </p>
+
+                        <div style="margin:0 0 8px 0;font-size:15px;line-height:1.6;">
+                            <strong>Evento:</strong> {{EVENTO_NOMBRE}}<br>
+                            <strong>Descripción:</strong> {{EVENTO_DESCRIPCION}}<br>
+                            <strong>Lugar:</strong> {{EVENTO_UBICACION}}<br>
+                            <strong>Inicio:</strong> {{EVENTO_INICIO}}<br>
+                            <strong>Fin:</strong> {{EVENTO_FIN}}<br>
+                        </div>
+
+                        <div style="margin:10px 0 0 0;font-size:15px;line-height:1.6;">
+                            <strong>ID de inscripción:</strong> {{INSCRIPCION_ID}}
+                        </div>
+
+                        <p style="margin:16px 0 0 0;font-size:15px;line-height:1.55;">
+                            ¡Gracias por participar!
+                        </p>
+
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Footer -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:880px;margin-top:16px;">
+                <tr>
+                    <td style="background:#0d3d97;color:#dbe7ff;border-radius:10px;padding:12px 16px;text-align:center;font-size:12px;">
+                        Municipalidad de San Juan Sacatepéquez — Gracias por ser parte de nuestras actividades comunitarias.
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>

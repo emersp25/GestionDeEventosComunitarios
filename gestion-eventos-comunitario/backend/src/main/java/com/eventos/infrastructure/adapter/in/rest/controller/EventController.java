@@ -1,12 +1,15 @@
 package com.eventos.infrastructure.adapter.in.rest.controller;
 
+import com.eventos.application.usecase.CancelEventUseCase;
 import com.eventos.application.usecase.CreateEventUseCase;
+import com.eventos.application.usecase.UpdateEventUseCase;
 import com.eventos.domain.model.Event;
 import com.eventos.domain.model.EventStatus;
 import com.eventos.domain.port.out.EventRepository;
 import com.eventos.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.eventos.infrastructure.adapter.in.rest.dto.EventRequest;
 import com.eventos.infrastructure.adapter.in.rest.dto.EventResponse;
+import com.eventos.infrastructure.adapter.in.rest.dto.UpdateEventRequest;
 import com.eventos.infrastructure.adapter.in.rest.mapper.EventDTOMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -34,13 +37,19 @@ import java.util.stream.Collectors;
 public class EventController {
 
     private final CreateEventUseCase createEventUseCase;
+    private final UpdateEventUseCase updateEventUseCase;
+    private final CancelEventUseCase cancelEventUseCase;
     private final EventRepository eventRepository;
     private final EventDTOMapper eventMapper;
 
     public EventController(CreateEventUseCase createEventUseCase,
+                           UpdateEventUseCase updateEventUseCase,
+                           CancelEventUseCase cancelEventUseCase,
                            EventRepository eventRepository,
                            EventDTOMapper eventMapper) {
         this.createEventUseCase = createEventUseCase;
+        this.updateEventUseCase = updateEventUseCase;
+        this.cancelEventUseCase = cancelEventUseCase;
         this.eventRepository = eventRepository;
         this.eventMapper = eventMapper;
     }
@@ -199,28 +208,32 @@ public class EventController {
         );
     }
 
+    // -------------------- Actualizar (NOTIFICA) --------------------
+    @Operation(summary = "Actualizar evento", description = "Modifica datos del evento y notifica a los inscritos")
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<EventResponse>> updateEvent(@PathVariable String id,
+                                                                  @Valid @RequestBody UpdateEventRequest body) {
+        var cmd = new UpdateEventUseCase.UpdateEventCommand(
+                id,
+                body.getNombre(),
+                body.getDescripcion(),
+                body.getFechaInicio(),
+                body.getFechaFin(),
+                body.getUbicacion(),
+                body.getCapacidadMaxima()
+        );
+        Event updated = updateEventUseCase.execute(cmd);
+        return ResponseEntity.ok(ApiResponse.success(eventMapper.toResponse(updated), "Evento actualizado"));
+    }
+
     /**
      * DELETE /api/eventos/{id} - Cancelar evento
      */
-    @Operation(
-            summary = "Cancelar evento",
-            description = "Cambia el estado de un evento a CANCELADO"
-    )
+    // -------------------- Cancelar (NOTIFICA) --------------------
+    @Operation(summary = "Cancelar evento", description = "Cambia el estado de un evento a CANCELADO y notifica a los inscritos")
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse<EventResponse>> cancelEvent(
-            @Parameter(description = "ID del evento a cancelar", required = true)
-            @PathVariable String id) {
-
-        Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Evento no encontrado"));
-
-        event.cancelarEvento();
-        Event updatedEvent = eventRepository.save(event);
-
-        EventResponse response = eventMapper.toResponse(updatedEvent);
-
-        return ResponseEntity.ok(
-                ApiResponse.success(response, "Evento cancelado exitosamente")
-        );
+    public ResponseEntity<ApiResponse<EventResponse>> cancelEvent(@PathVariable String id) {
+        Event canceled = cancelEventUseCase.cancel(id);
+        return ResponseEntity.ok(ApiResponse.success(eventMapper.toResponse(canceled), "Evento cancelado exitosamente"));
     }
 }

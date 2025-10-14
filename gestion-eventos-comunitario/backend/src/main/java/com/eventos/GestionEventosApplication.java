@@ -15,7 +15,7 @@ public class GestionEventosApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     public void onReady() {
-        System.out.println("✅ Aplicación iniciada")
+        System.out.println("✅ Aplicación iniciada");
         System.out.println("http://localhost:8080/swagger-ui/index.html#/");
     }
 }

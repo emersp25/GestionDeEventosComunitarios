@@ -131,6 +131,20 @@ public class Event {
         return capacidadMaxima - inscripcionesIds.size();
     }
 
+    public void actualizarCapacidadMaxima(Integer nuevaCapacidad) {
+        if (nuevaCapacidad == null) return;
+        if (nuevaCapacidad < 1) {
+            throw new IllegalArgumentException("La capacidad debe ser al menos 1");
+        }
+        // No permitir capacidad menor a las inscripciones ya existentes
+        if (inscripcionesIds != null && nuevaCapacidad < inscripcionesIds.size()) {
+            throw new IllegalStateException("La nueva capacidad no puede ser menor al número de inscritos actuales ("
+                    + inscripcionesIds.size() + ")");
+        }
+        this.capacidadMaxima = nuevaCapacidad;
+        this.fechaActualizacion = LocalDateTime.now();
+    }
+
     // Getters
     public String getId() { return id; }
     public String getNombre() { return nombre; }
