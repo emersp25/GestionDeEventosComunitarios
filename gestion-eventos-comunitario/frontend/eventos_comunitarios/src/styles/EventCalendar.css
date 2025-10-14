@@ -176,7 +176,7 @@
   gap: 8px;
 }
 
-/* Iconos (si usas emojis) */
+/* Iconos */
 .icon-calendar::before {
   content: "📅";
 }
@@ -225,7 +225,7 @@
   font-size: 16px !important;
   font-weight: bold !important;
   color: #333 !important;
-  text-transform: capitalize; /* Para que "octubre" se vea como "Octubre" */
+  text-transform: capitalize; 
 }
 
 .fc-button {

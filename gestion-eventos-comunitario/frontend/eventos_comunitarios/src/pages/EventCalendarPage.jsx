@@ -12,67 +12,6 @@ import '../styles/EventCalendar.css';
 const EventCalendarPage = () => {
   const [events, setEvents] = useState([]);
 
-  // Simulamos datos de eventos (en producción, esto vendría de una API)
-  useEffect(() => {
-    const mockEvents = [
-      {
-        id: '1',
-        title: 'Taller',
-        start: '2025-10-05T10:00:00',
-        end: '2025-10-05T11:00:00',
-        description: 'Taller de manualidades',
-        location: 'Plaza Central',
-        status: 'confirmed', // confirmed, pending, in-progress
-      },
-      {
-        id: '2',
-        title: 'Reunión',
-        start: '2025-10-10T14:00:00',
-        end: '2025-10-10T15:00:00',
-        description: 'Reunión comunitaria',
-        location: 'Centro Comunitario',
-        status: 'in-progress',
-      },
-      {
-        id: '3',
-        title: 'Feria Gastronómica',
-        start: '2025-10-25T10:00:00',
-        end: '2025-10-25T18:00:00',
-        description: 'Feria de comida local',
-        location: 'Parque Municipal',
-        status: 'pending',
-      },
-      {
-        id: '4',
-        title: 'Festival de Música',
-        start: '2025-10-30T18:00:00',
-        end: '2025-10-30T22:00:00',
-        description: 'Conciertos en vivo',
-        location: 'Parque Municipal',
-        status: 'confirmed',
-      },
-      {
-        id: '5',
-        title: 'Charla Educativa',
-        start: '2025-11-05T16:00:00',
-        end: '2025-11-05T17:00:00',
-        description: 'Educación financiera',
-        location: 'Biblioteca',
-        status: 'confirmed',
-      },
-      {
-        id: '6',
-        title: 'Conferencia Salud',
-        start: '2025-11-08T14:30:00',
-        end: '2025-11-08T16:00:00',
-        description: 'Salud mental y bienestar',
-        location: 'Centro de Salud',
-        status: 'confirmed',
-      },
-    ];
-
-    setEvents(mockEvents);
-  }, []);
 
   // Función para mapear el estado a clase CSS
   const getEventClassNames = (arg) => {
@@ -116,8 +55,9 @@ const EventCalendarPage = () => {
         headerToolbar={{
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay',
       }}
+      titleFormat={{ month: 'long'}}
       events={events}
       eventClassNames={getEventClassNames}
       eventClick={(info) => {

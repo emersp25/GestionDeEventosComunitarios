@@ -242,7 +242,7 @@
   background-color: #0056b3;
 }
 
-/* Iconos (si usas emojis o FontAwesome) */
+/* Iconos */
 .icon-settings::before {
   content: "⚙️";
 }
@@ -620,7 +620,6 @@
   border-top: 1px solid #dee2e6;
 }
 
-/* Asegúrate de que los botones de estado tengan el estilo correcto */
 .btn-outline {
   background-color: #fff;
   border: 1px solid #ccc;

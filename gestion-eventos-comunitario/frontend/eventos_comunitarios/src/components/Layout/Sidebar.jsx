@@ -12,18 +12,18 @@ const Sidebar = () => {
         <span>➕</span>
         Registrar Evento
       </Link>
-      <div className="sidebar-item">
+      <Link to= "/inscription-event" className="sidebar-item">
         <span>📋</span>
         Inscripciones
-      </div>
-      <div className="sidebar-item">
-        <span>💰</span>
+      </Link>
+      <Link to= "/budgets-event" className="sidebar-item">
+      <span>💰</span>
         Presupuestos
-      </div>
-      <div className="sidebar-item">
+        </Link>    
+      <Link to= "/reports-event" className="sidebar-item">
         <span>📈</span>
-        Reports
-      </div>
+        Reportes
+      </Link>
       <Link to="/calendar-event" className="sidebar-item">
         <span>📅</span>
         Calendario

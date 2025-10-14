@@ -50,7 +50,7 @@ const EventRegistrationPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Evento registrado!');
-    // Aquí podrías enviar los datos a un backend o guardar en localStorage
+   
   };
 
  return (
@@ -418,22 +418,7 @@ const EventRegistrationPage = () => {
   <div className="next-events-section">
     <h3>Próximos Eventos</h3>
     <ul className="event-list">
-      <li className="event-item">
-        <span className="event-dot active"></span>
-        25 Oct - Feria Gastronómica
-      </li>
-      <li className="event-item">
-        <span className="event-dot pending"></span>
-        30 Oct - Festival Música
-      </li>
-      <li className="event-item">
-        <span className="event-dot rejected"></span>
-        02 Nov - Taller Manualidades
-      </li>
-      <li className="event-item">
-        <span className="event-dot" style={{ backgroundColor: '#6c757d' }}></span>
-        05 Nov - Conferencia Salud
-      </li>
+      
     </ul>
     <button className="btn btn-primary" style={{ marginTop: '10px', width: '100%' }}>
       Ver Calendario Completo

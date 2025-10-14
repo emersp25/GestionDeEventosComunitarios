@@ -1,0 +1,229 @@
+/* === INSRIPTIONS PAGE === */
+
+.filters-section {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-item label {
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.filter-item select,
+.filter-item input {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.filter-item input {
+  min-width: 200px;
+}
+
+/* Estilos de la tabla */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Participante */
+.participant-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.avatar.m { background-color: #007bff; color: white; }
+.avatar.j { background-color: #ffc107; color: #333; }
+.avatar.a { background-color: #28a745; color: white; }
+.avatar.c { background-color: #6c757d; color: white; }
+.avatar.l { background-color: #17a2b8; color: white; }
+.avatar.r { background-color: #fd7e14; color: white; }
+.avatar.s { background-color: #dc3545; color: white; }
+.avatar.d { background-color: #6f42c1; color: white; }
+
+/* Estados */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+}
+
+.status-badge.confirmed {
+  background-color: #28a745;
+}
+
+.status-badge.pending {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.status-badge.waiting {
+  background-color: #17a2b8;
+}
+
+.status-badge.cancelled {
+  background-color: #dc3545;
+}
+
+.status-badge.registered {
+  background-color: #6c757d;
+}
+
+/* Confirmación */
+.confirmation-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+}
+
+.confirmation-status.confirmed {
+  color: #28a745;
+}
+
+.confirmation-status.unconfirmed {
+  color: #ffc107;
+}
+
+.confirmation-status.waiting {
+  color: #17a2b8;
+}
+
+.confirmation-status.cancelled {
+  color: #dc3545;
+}
+
+.confirmation-status.pending {
+  color: #6c757d;
+}
+
+/* Acciones */
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.page-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.page-buttons .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+/* Acciones Rápidas */
+.quick-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.quick-actions-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.quick-actions-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.quick-actions-buttons .btn {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Estilos adicionales para los botones de acción */
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
