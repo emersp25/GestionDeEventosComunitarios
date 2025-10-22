@@ -12,7 +12,6 @@ public class GestionEventosApplication {
     public static void main(String[] args) {
         SpringApplication.run(GestionEventosApplication.class, args);
     }
-
     @EventListener(ApplicationReadyEvent.class)
     public void onReady() {
         System.out.println("✅ Aplicación iniciada");

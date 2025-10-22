@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/external/requests")
+@RequestMapping("/api/v1/external/requests")
 @CrossOrigin(origins = "*")
 @Tag(name = "External Requests", description = "Encapsula autenticación y reenvío de solicitudes al servicio externo")
 public class ExternalRequestController {
