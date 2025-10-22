@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
  * Adaptador de entrada (Puerto de entrada HTTP)
  */
 @RestController
-@RequestMapping("/api/inscripciones")
+@RequestMapping("/api/v1/inscripciones")
 @CrossOrigin(origins = "*")
 @Tag(name = "Inscripciones", description = "API para gestión de inscripciones a eventos")
 public class InscriptionController {

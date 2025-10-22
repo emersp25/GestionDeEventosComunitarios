@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  * Adaptador de entrada (Puerto de entrada HTTP)
  */
 @RestController
-@RequestMapping("/api/eventos")
+@RequestMapping("/api/v1/eventos")
 @CrossOrigin(origins = "*")
 @Tag(name = "Eventos", description = "API para gestión de eventos comunitarios")
 public class EventController {
