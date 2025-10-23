@@ -1,0 +1,14 @@
+/* Minimal spacing inside AdminLTE content area */
+.content {
+  /* Más separación superior para evitar que el contenido "pegue" al navbar */
+  padding: 1.5rem 1rem 1rem;
+}
+
+/* Ajuste sutil adicional dentro del contenedor principal */
+.content .container-fluid {
+  padding-top: .25rem;
+}
+
+.card .card-body p {
+  margin-bottom: 0;
+}

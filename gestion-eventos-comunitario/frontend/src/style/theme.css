@@ -1,0 +1,121 @@
+/* Theme: Gestión de Eventos Comunitarios
+   Paleta pensada para comunidad y eventos: teal (confianza/colaboración) + coral (energía/evento)
+*/
+:root {
+  /* Modern & elegant palette: indigo/violet + slate */
+  --primary-color: #6C63FF; /* indigo/violet moderno */
+  --primary-color-dark: #4F46E5; /* hover/active */
+  --accent-color: #A78BFA; /* violeta claro para acentos suaves */
+  --sidebar-bg: #0F172A; /* slate-900 para sidebar */
+  --sidebar-text: #ffffff;
+  --content-bg: #f6f7fb; /* fondo claro y limpio */
+}
+
+/* Global link colors */
+a {
+  color: var(--primary-color);
+}
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Navbar refinements */
+.main-header.navbar {
+  border-bottom: 3px solid var(--primary-color);
+}
+.main-header .navbar-nav .nav-link i {
+  color: var(--primary-color);
+}
+
+/* Sidebar theming */
+.main-sidebar {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text);
+}
+.brand-link {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+}
+
+/* Nav links inside sidebar */
+.nav-sidebar .nav-link {
+  color: var(--sidebar-text);
+}
+.nav-sidebar .nav-link:hover {
+  background-color: rgba(108, 99, 255, 0.12); /* primary tint (indigo) */
+}
+.nav-sidebar .nav-link.active {
+  background-color: rgba(108, 99, 255, 0.18) !important; /* primary tint (indigo) */
+  border-left: 3px solid var(--primary-color);
+}
+.nav-sidebar .nav-link .nav-icon {
+  color: var(--primary-color);
+}
+
+/* Content wrapper background aligns with AdminLTE default but explicit */
+.content-wrapper {
+  background-color: var(--content-bg);
+}
+
+/* Cards with subtle emphasis */
+.card .card-header {
+  background-color: #ffffff;
+  border-left: 4px solid var(--primary-color);
+}
+.card .card-title {
+  color: #333;
+}
+
+/* Bootstrap/AdminLTE utility overrides to reflect theme */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-color-dark) !important;
+  border-color: var(--primary-color-dark) !important;
+}
+
+/* Accent badge utility */
+.badge-accent {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* Sidebar headers: cleaner, more organized */
+.nav-header {
+  color: #a0a6b4;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0.75rem 0 0.25rem 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Right-align badges inside links */
+.nav-sidebar .nav-link .badge.right {
+  margin-left: auto;
+}
+
+/* Chevron animation for treeview */
+.nav-item.has-treeview > a .right.fas.fa-angle-left {
+  transition: transform 0.2s ease;
+}
+.menu-open > a .right.fas.fa-angle-left {
+  transform: rotate(-90deg);
+}
+
+/* Left border cue to enhance hover/active */
+.nav-sidebar .nav-link {
+  border-left: 3px solid transparent;
+}
+.nav-sidebar .nav-link:hover {
+  border-left-color: var(--primary-color);
+}

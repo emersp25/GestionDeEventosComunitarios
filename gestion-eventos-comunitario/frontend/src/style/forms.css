@@ -1,0 +1,161 @@
+/* Global form design system for reusable inputs and sections
+   Uses palette from theme.css (var(--primary-color), --accent-color, etc.)
+*/
+:root {
+  --form-radius: 8px;
+  --form-border: #dfe3ea;
+  --form-border-focus: var(--primary-color);
+  --form-shadow-focus: 0 0 0 0.2rem rgba(108, 99, 255, 0.15); /* indigo tint */
+  --label-color: #111827;
+  --label-muted: #6b7280;
+  --section-divider: #e5e7eb;
+}
+
+/* Labels */
+.form-label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--label-color);
+  margin-bottom: .35rem;
+}
+.form-label .required-asterisk {
+  color: var(--primary-color);
+  margin-left: .25rem;
+  font-weight: 700;
+}
+
+/* Inputs, selects, textareas (Bootstrap 4/AdminLTE compatible) */
+.form-control,
+.custom-select {
+  border-radius: var(--form-radius);
+  border-color: var(--form-border);
+  box-shadow: none;
+}
+.form-control:focus,
+.custom-select:focus {
+  border-color: var(--form-border-focus);
+  box-shadow: var(--form-shadow-focus);
+}
+
+/* Checkbox (Bootstrap 4 custom control) */
+.custom-control-label {
+  user-select: none;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: var(--form-shadow-focus);
+  border-color: var(--form-border-focus);
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+/* Help text and hint rows */
+.form-text {
+  color: var(--label-muted);
+}
+.help-inline {
+  font-size: .85rem;
+  color: var(--label-muted);
+}
+/* Align help text under custom checkboxes instead of inline */
+.custom-control + .form-text {
+  margin-left: 1.75rem; /* aligns with checkbox label */
+  display: block;
+}
+
+/* Character counter (place inside a position-relative wrapper) */
+.char-counter {
+  font-size: .8rem;
+  color: var(--label-muted);
+  text-align: right;
+}
+
+/* Section headers inside cards */
+.form-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+}
+.form-section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+.form-section-subtitle {
+  margin: 0;
+  font-size: .85rem;
+  color: var(--label-muted);
+}
+
+/* Divider line to separate sections within a card body */
+.section-divider {
+  height: 1px;
+  background-color: var(--section-divider);
+  margin: .75rem 0 1rem;
+}
+
+/* Form actions area */
+.form-actions {
+  display: flex;
+  gap: .5rem;
+  justify-content: flex-end;
+  padding-top: .75rem;
+  border-top: 1px solid var(--section-divider);
+}
+
+/* Spacing utilities for grid forms */
+.form-row-gap {
+  margin-bottom: 1rem;
+}
+
+/* Make select caret more visible on dark sidebar layouts when embedded forms appear there */
+.custom-select {
+  background-color: #fff;
+}
+
+/* Improve textarea look */
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+/* Badge accent utility aligns with theme.css */
+.badge-accent {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* Compact sizing adjustments (inputs muy grandes -> versión compacta por defecto .-sm) */
+.form-group {
+  margin-bottom: .75rem;
+}
+
+.form-label {
+  font-size: .95rem;
+}
+
+/* Inputs compactos */
+.form-control-sm {
+  font-size: .875rem;
+  padding: .25rem .5rem;
+  height: calc(1.5em + .5rem + 2px);
+  line-height: 1.25;
+}
+
+/* Selects compactos */
+.custom-select-sm {
+  font-size: .875rem;
+  padding: .25rem 1.75rem .25rem .5rem; /* dejar espacio para el caret */
+  height: calc(1.5em + .5rem + 2px);
+  line-height: 1.25;
+}
+
+/* Textareas compactas (cuando se usa -sm) */
+textarea.form-control-sm {
+  min-height: 80px;
+}
