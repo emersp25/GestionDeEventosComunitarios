@@ -1,0 +1,106 @@
+/* Estilos básicos para la vista de Reportes (gráfica) */
+.reports-chart-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  height: 360px; /* altura fija para evitar loops de resize en Chart.js */
+}
+
+/* Ajustes de la tarjeta si se requiere más margen */
+.card .card-header .btn i {
+  margin-right: 0.25rem;
+}
+
+.card .card-title {
+  font-weight: 600;
+}
+
+/* Diferenciación visual de secciones de Reportes */
+.report-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* gris claro */
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.report-section + .report-section {
+  margin-top: 1rem;
+}
+
+.section-header {
+  border-bottom: 1px dashed #e5e7eb;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-header h5 {
+  font-weight: 600;
+}
+
+.section-inscritos { border-left: 4px solid #3b82f6; } /* azul */
+.section-mensual   { border-left: 4px solid #0ea5e9; } /* celeste */
+.section-totales   { border-left: 4px solid #f59e0b; } /* ámbar */
+.section-top       { border-left: 4px solid #10b981; } /* verde */
+
+/* Ajustes menores dentro de las secciones */
+.report-section .form-row {
+  margin-top: 0.25rem;
+}
+
+.report-section .form-group label {
+  font-weight: 500;
+  color: #374151; /* gris oscuro */
+}
+
+.report-section .badge {
+  background-color: #f8fafc; /* muy claro */
+  border: 1px solid #e5e7eb;
+}
+
+/* Contenedor de gráficas */
+.reports-chart-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  height: 360px; /* altura fija para evitar loops de resize en Chart.js */
+}
+
+
+/* Ajustes visuales para tarjetas internas de KPIs */
+.section-totales .card {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.section-totales .card-body .h5 {
+  color: #374151;
+}
+
+.section-totales .card-body .display-6 {
+  font-weight: 700;
+}
+
+/* Asegurar que el canvas de Chart.js ocupe el ancho completo del contenedor */
+.reports-chart-wrapper canvas {
+  width: 100% !important;
+  display: block;
+}
+
+/* Sub-secciones para separar claramente las gráficas dentro de “Eventos por mes” */
+.monthly-right-col {
+  border-left: 2px solid #e5e7eb; /* divisor visual entre ambas gráficas */
+  padding-left: 12px;              /* separación interior */
+}
+
+.report-subsection {
+  background: #f9fafb;             /* fondo ligeramente distinto para distinguir panel */
+  border: 1px solid #e5e7eb;       /* borde sutil */
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.subsection-header {
+  border-bottom: 1px dashed #e5e7eb;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}

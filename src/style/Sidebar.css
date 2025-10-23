@@ -1,0 +1,22 @@
+/* Sidebar custom styles to complement AdminLTE defaults */
+.main-sidebar .brand-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.main-sidebar .nav-sidebar .nav-link .nav-icon {
+  margin-right: 8px;
+}
+
+/* Optional: highlight active link example */
+.main-sidebar .nav-sidebar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Treeview indentation tweaks */
+.nav-treeview .nav-link {
+  padding-left: 2rem;
+}

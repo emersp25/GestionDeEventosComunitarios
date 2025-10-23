@@ -1,0 +1,13 @@
+/* Navbar tweaks over AdminLTE defaults */
+.main-header .navbar-nav .nav-link {
+  cursor: pointer;
+}
+
+.main-header .navbar-nav .nav-link i {
+  margin-right: 6px;
+}
+
+/* Optional spacing for right-side links */
+.main-header .navbar-nav.ml-auto .nav-link {
+  padding-right: 1rem;
+}

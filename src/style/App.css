@@ -1,0 +1,11 @@
+/* AdminLTE integration: remove Vite demo defaults */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+.wrapper {
+  min-height: 100vh;
+}

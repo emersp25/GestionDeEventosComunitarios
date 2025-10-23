@@ -1,0 +1,24 @@
+/* Global styles aligned with AdminLTE (remove Vite demo defaults) */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* AdminLTE background tone */
+  background-color: #f4f6f9;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}

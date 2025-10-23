@@ -1,0 +1,30 @@
+/* Footer styling aligned with AdminLTE */
+.main-footer {
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.main-footer .float-right {
+  margin-right: 0.5rem;
+}
+
+/* Fixed footer when layout-footer-fixed is enabled on body */
+.layout-footer-fixed .main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* above content */
+}
+
+/* Prevent overlap: add bottom padding to content wrapper (AdminLTE content area) */
+.layout-footer-fixed .content-wrapper {
+  padding-bottom: 60px; /* adjust to your footer height */
+}
+
+@media (max-width: 576px) {
+  .layout-footer-fixed .content-wrapper {
+    padding-bottom: 70px;
+  }
+}
