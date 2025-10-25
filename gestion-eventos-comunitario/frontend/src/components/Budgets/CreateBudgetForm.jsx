@@ -10,7 +10,7 @@ import { createBudgetRequest } from '../../api/budgets.js';
 
 export default function CreateBudgetForm() {
   const [form, setForm] = useState({
-    originId: 1,
+    originId: 2,
     name: '',
     email: '',
     requestAmount: '',
@@ -21,7 +21,7 @@ export default function CreateBudgetForm() {
   const [events, setEvents] = useState([]);
   const [selectedEventId, setSelectedEventId] = useState('');
 
-  const ORIGIN_DEFAULT = 0;
+  const ORIGIN_DEFAULT = 2;
 
   const location = useLocation();
 
@@ -96,7 +96,7 @@ export default function CreateBudgetForm() {
     }
 
     const payload = {
-      originId: 1,
+      originId: 2,
       requestAmount: amount,
       name,
       reason,
@@ -224,7 +224,7 @@ export default function CreateBudgetForm() {
             />
           </div>
 
-          {/* Campo oculto: originId por defecto = 1 (solo para referencia; no es necesario si el backend lo asume por defecto) */}
+          {/* Campo oculto: originId por defecto = 2 (solo para referencia; no es necesario si el backend lo asume por defecto) */}
           <input type="hidden" name="originId" value={ORIGIN_DEFAULT} readOnly />
         </div>
 

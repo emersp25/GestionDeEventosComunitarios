@@ -28,7 +28,8 @@ public class UpdateEventUseCase {
             java.time.LocalDateTime fechaInicio,
             java.time.LocalDateTime fechaFin,
             String ubicacion,
-            Integer capacidadMaxima
+            Integer capacidadMaxima,
+            String estado
     ) {}
 
     public UpdateEventUseCase(EventRepository eventRepository,
@@ -45,7 +46,7 @@ public class UpdateEventUseCase {
         // 1) Cargar y actualizar por comportamiento de dominio
         Event event = eventRepository.findById(cmd.id())
                 .orElseThrow(() -> new IllegalArgumentException("Evento no encontrado: " + cmd.id()));
-        event.actualizarInformacion(cmd.nombre(), cmd.descripcion(), cmd.fechaInicio(), cmd.fechaFin(), cmd.ubicacion());
+        event.actualizarInformacion(cmd.nombre(), cmd.descripcion(), cmd.fechaInicio(), cmd.fechaFin(), cmd.ubicacion(), cmd.estado());
         event.actualizarCapacidadMaxima(cmd.capacidadMaxima());
 
         // 2) Persistir cambios

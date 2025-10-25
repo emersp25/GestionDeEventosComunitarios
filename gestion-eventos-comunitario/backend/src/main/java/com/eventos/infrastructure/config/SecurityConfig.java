@@ -30,15 +30,21 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .headers(h -> h
-                                .contentSecurityPolicy(csp -> csp
-                                        .policyDirectives("default-src 'self'; object-src 'none'; frame-ancestors 'none'"))
                                 .frameOptions(fo -> fo.deny())
                                 .referrerPolicy(rp -> rp.policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.NO_REFERRER))
                         // (Opcional) HSTS si se usa sobre HTTPS detrás de proxy
                         // .httpStrictTransportSecurity(hsts -> hsts.includeSubDomains(true).preload(true))
                 )
+
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/health", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
+                        // Recursos estáticos y rutas del frontend
+                        .requestMatchers("/", "/static/**", "/*.js", "/*.css", "/*.ico",
+                                "/*.json", "/*.png", "/assets/**").permitAll()
+                        .requestMatchers("/events", "/events/**", "/reports", "/reports/**",
+                                "/calendar", "/calendar/**", "/registrations", "/registrations/**",
+                                "/budgets", "/budgets/**", "/login", "/register").permitAll()
+                        // Rutas de API
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/eventos/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/inscripciones").permitAll()
@@ -47,8 +53,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/eventos").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/v1/eventos/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/v1/eventos/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        // Solo rutas /api/** requieren autenticación
+                        .requestMatchers("/api/**").authenticated()
+                        .anyRequest().permitAll()  // Cambiado de authenticated() a permitAll()
                 )
+
                 .addFilterBefore(new JwtAuthFilter(jwt, userRepository), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
@@ -57,7 +66,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         var c = new CorsConfiguration();
-        c.setAllowedOrigins(List.of("http://localhost:5173"));
+        c.setAllowedOrigins(List.of("http://localhost:5173", "http://93.127.139.74:8080"));
         c.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         c.setAllowedHeaders(List.of("Content-Type","Authorization"));
         c.setAllowCredentials(false);

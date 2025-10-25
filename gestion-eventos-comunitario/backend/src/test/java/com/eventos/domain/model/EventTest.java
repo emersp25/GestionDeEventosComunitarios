@@ -167,7 +167,8 @@ public class EventTest {
                 "Nueva descripción",
                 nuevaFechaInicio,
                 nuevaFechaFin,
-                "Nueva ubicación"
+                "Nueva ubicación",
+                "APROBADO"
         );
 
         assertEquals("Nuevo nombre", event.getNombre());

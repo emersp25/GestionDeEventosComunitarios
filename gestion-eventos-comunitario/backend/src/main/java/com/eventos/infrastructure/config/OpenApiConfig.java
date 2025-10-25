@@ -33,6 +33,9 @@ public class OpenApiConfig {
                         new Server()
                                 .url("http://localhost:8080")
                                 .description("Servidor de desarrollo")
+                                .url("http://93.127.139.74:8080/EVENTOS")
+                                .description("Servidor de producción")
+
                 ));
     }
 }

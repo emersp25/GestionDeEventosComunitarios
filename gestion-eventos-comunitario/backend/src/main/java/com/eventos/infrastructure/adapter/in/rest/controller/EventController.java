@@ -220,7 +220,8 @@ public class EventController {
                 body.getFechaInicio(),
                 body.getFechaFin(),
                 body.getUbicacion(),
-                body.getCapacidadMaxima()
+                body.getCapacidadMaxima(),
+                body.getEstado()
         );
         Event updated = updateEventUseCase.execute(cmd);
         return ResponseEntity.ok(ApiResponse.success(eventMapper.toResponse(updated), "Evento actualizado"));

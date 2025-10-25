@@ -181,9 +181,9 @@ export default function Dashboard() {
           <NavLink to="/events" className="btn btn-outline-secondary mr-2 mb-2">
             <i className="fas fa-list mr-2"></i>Ver Eventos
           </NavLink>
-          <button type="button" className="btn btn-success mr-2 mb-2" disabled>
-            <i className="fas fa-chart-bar mr-2"></i>Ver Reportes
-          </button>
+            <NavLink to="/reports" className="btn btn-outline-secondary mr-2 mb-2">
+                <i className="fas fa-list mr-2"></i>Ver Reportes
+            </NavLink>
           <NavLink to="/calendar" className="btn btn-secondary mb-2">
             <i className="far fa-calendar-alt mr-2"></i>Calendario
           </NavLink>

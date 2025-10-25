@@ -25,10 +25,10 @@ public class ExternalRequestQueryController {
         this.useCase = useCase;
     }
 
-    @Operation(summary = "Listar solicitudes (originId=1)")
+    @Operation(summary = "Listar solicitudes (originId=2)")
     @GetMapping
     public ResponseEntity<ExternalApiEnvelope<List<ExternalRequestItem>>> list() {
-        ExternalApiEnvelope<List<ExternalRequestItem>> envelope = useCase.execute(1);
+        ExternalApiEnvelope<List<ExternalRequestItem>> envelope = useCase.execute(2);
         return ResponseEntity.ok(envelope);
     }
 }

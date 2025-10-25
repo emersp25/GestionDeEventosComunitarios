@@ -100,6 +100,7 @@ public class WebClientExternalRequestClient implements ExternalRequestClient {
                 .queryParam("PageNumber", 1)
                 .queryParam("PageSize", 30)
                 .queryParam("IncludeTotal", false)
+                .queryParam("Filters", "OriginId:eq:2")
                 .build(true)
                 .toUri();
 

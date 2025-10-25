@@ -16,6 +16,8 @@ public class UpdateEventRequest {
 
     private Integer capacidadMaxima;
 
+    private String estado;
+
     // getters/setters
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
@@ -29,5 +31,7 @@ public class UpdateEventRequest {
     public void setUbicacion(String ubicacion) { this.ubicacion = ubicacion; }
     public Integer getCapacidadMaxima() { return capacidadMaxima; }
     public void setCapacidadMaxima(Integer capacidadMaxima) { this.capacidadMaxima = capacidadMaxima; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 }
 

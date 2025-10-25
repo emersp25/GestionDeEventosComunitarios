@@ -114,13 +114,14 @@ public class Event {
     }
 
     public void actualizarInformacion(String nombre, String descripcion, LocalDateTime fechaInicio,
-                                      LocalDateTime fechaFin, String ubicacion) {
+                                      LocalDateTime fechaFin, String ubicacion, String estado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.ubicacion = ubicacion;
         this.fechaActualizacion = LocalDateTime.now();
+        this.status = EventStatus.valueOf(estado);
     }
 
     public boolean tieneCuposDisponibles() {
